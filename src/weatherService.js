@@ -1,6 +1,6 @@
 export const fetchWeatherData = async (location) => {
   const apiKey = import.meta.env.VITE_TOMORROW_API_KEY;
-  const url = `https://api.tomorrow.io/v4/timelines?location=${location}&fields=temperature,humidity,precipitation&apikey=${apiKey}`;
+  const url = `https://api.tomorrow.io/v4/timelines?location=${location}&fields=temperature,humidity,weatherCode&apikey=${apiKey}`;
 
   try {
     const response = await fetch(url);
