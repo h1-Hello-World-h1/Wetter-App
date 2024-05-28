@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { fetchWeatherData } from './weatherService';
-import Suche from './Components/Suche';
-import Logo from './Components/Logo';
-import './App.css';
+import { useState, useEffect } from "react";
+import { fetchWeatherData } from "./weatherService";
+import Suche from "./Components/Suche";
+import Logo from "./Components/Logo";
+import "./App.css";
 
 function App() {
-  const [location, setLocation] = useState('Braunschweig');
+  const [location, setLocation] = useState("Braunschweig");
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -30,9 +30,18 @@ function App() {
       {weatherData ? (
         <div>
           <h2>Weather in {location}</h2>
-          <p>Temperature: {weatherData.data.timelines[0].intervals[0].values.temperature} °C</p>
-          <p>Humidity: {weatherData.data.timelines[0].intervals[0].values.humidity} %</p>
-          <p>Precipitation: {weatherData.data.timelines[0].intervals[0].values.precipitation} </p>
+          <p>
+            Temperature:{" "}
+            {weatherData.data.timelines[0].intervals[0].values.temperature} °C
+          </p>
+          <p>
+            Humidity:{" "}
+            {weatherData.data.timelines[0].intervals[0].values.humidity} %
+          </p>
+          <p>
+            Precipitation:{" "}
+            {weatherData.data.timelines[0].intervals[0].values.precipitation}{" "}
+          </p>
         </div>
       ) : (
         <p>Loading...</p>
