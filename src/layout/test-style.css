@@ -1,4 +1,8 @@
 @import url(https://fonts.bunny.net/css?family=inter:400,500|montserrat:300,500,700);
+/*
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
+*/
 
 * {
     padding: 0;
@@ -11,28 +15,37 @@
 :root {
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
-    color: white;
+    color: var(--text-color);
     text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+
+    --text-color: white;
 }
 
 body {
     max-width: 1000px;
-    height: 100vh;
+    /* height: fit-content; */
+    min-height: 100vh;
     margin: 0 auto;
     background: url(https://img.freepik.com/free-photo/vibrant-orange-hues-illuminate-clouds-sunset-sky_157027-2981.jpg?t=st=1716886667~exp=1716890267~hmac=64398bbfb0a3fdfaab0f85f5117027f878f42ce74cd7828f8865276e063d3968&w=1800);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 
-    padding: 9rem 1rem 1rem;
+    padding: 2rem 1rem;
     display: grid;
     grid-template-rows: min-content auto min-content;
+    gap: 3rem;
 }
 
 header {
     display: grid;
     grid-template-columns: 60% 40%;
-    margin-bottom: 3rem;
+    grid-template-rows: 2fr 1fr;
+
+    .logo {
+        padding: 1rem 1rem 0;
+        grid-column: 1/span 2;
+    }
 
     .city-container {
         display: flex;
@@ -62,14 +75,14 @@ header {
         padding-right: 2rem;
 
         button {
-            color: white;
+            color: var(--text-color);
             font-size: 2rem;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
             cursor: pointer;
             transition: text-shadow 0.5s;
 
             &:hover {
-                text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.75);
             }
         }
     }
@@ -78,6 +91,8 @@ header {
 main {
     display: grid;
     grid-template-columns: 60% 40%;
+    grid-template-rows: auto min-content;
+    row-gap: 3.5rem;
 
     .temp-container {
         display: flex;
@@ -89,7 +104,8 @@ main {
             font-size: 6.25rem;
             font-family: 'Inter', sans-serif;
             font-weight: 500;
-            padding-left: 1rem;
+            letter-spacing: -0.25rem;
+            padding-left: 0.75rem;
         }
 
         p {
@@ -104,37 +120,87 @@ main {
             }
         }
     }
-
-    .info-container {
+    
+    .details-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         gap: 1.5rem;
+        padding: 2rem 0;
 
         div {
             display: flex;
             flex-direction: column;
             align-items: center;
+
+            h3 {
+                font-size: 1rem;
+                font-weight: normal;
+            }
+    
+            strong {
+                font-size: 1rem;
+            }
+    
+            small {
+                font-size: 0.75rem;
+            }
+        }
+    }
+
+    .hours-container {
+        grid-column: 1/span 2;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        font-family: 'Inter', sans-serif;
+        overflow-x: auto;
+
+        &::-webkit-scrollbar {
+            width: 0.5rem;
+            height: 0.5rem;
         }
 
-        h3 {
-            font-size: 0.75rem;
-            font-weight: normal;
+        &::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 0.5rem;
         }
 
-        strong {
-            font-size: 0.75rem;
+        &::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 0.5rem;
+            transition: all 0.5s;
         }
 
-        small {
-            font-size: 0.5rem;
+        &::-webkit-scrollbar-thumb:hover {
+            background: white;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+
+            h3 {
+                font-size: 1rem;
+                font-weight: 500;
+                text-wrap: nowrap;
+            }
+
+            i {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-weight: 500;
+            }
         }
     }
 }
 
 footer {
-    margin-top: 3rem;
-
     small {
         display: block;
         font-size: 0.75rem;
