@@ -96,13 +96,14 @@ function App() {
   }, [location]);
 
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundImage: `url(${weatherImage})`}}>
       <Logo />
       <Suche setLocation={setLocation} />
       {error && <p>Error: {error}</p>}
       {weatherData ? (
         <div>
           <h2>Weather in {location}</h2>
+<<<<<<< HEAD
           <p>
             Temperature:{" "}
             {weatherData.data.timelines[0].intervals[0].values.temperature} °C
@@ -118,6 +119,13 @@ function App() {
             )}
           </p>
           {weatherImage && <img src={weatherImage} alt="Weather Image" />}
+=======
+          <p>Temperature: {weatherData.data.timelines[0].intervals[0].values.temperature} °C</p>
+          <p>Humidity: {weatherData.data.timelines[0].intervals[0].values.humidity} %</p>
+          <p>Weather: {getWeatherDescription(weatherData.data.timelines[0].intervals[0].values.weatherCode)}</p>
+          {/* {weatherImage && (
+            <img src={weatherImage} alt="Weather Image" />)} */}
+>>>>>>> main
         </div>
       ) : (
         <p>Loading...</p>
