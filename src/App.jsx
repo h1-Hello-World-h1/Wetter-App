@@ -10,6 +10,7 @@ import Thunderstorm from "./assets/thunderstorm.jpg";
 import Default from "./assets/default.jpg";
 import Foggy from "./assets/foggy.jpg";
 import "./App.css";
+import Footer from "./Components/footer.jsx";
 
 function App() {
   const [location, setLocation] = useState("Braunschweig");
@@ -96,153 +97,36 @@ function App() {
   }, [location]);
 
   return (
-
     <>
-    <div className="App" style={{ backgroundImage: `url(${weatherImage})`}}>
-      <Logo />
-      <Suche setLocation={setLocation} />
-      {error && <p>Error: {error}</p>}
-      {weatherData ? (
-        <div>
-          <h2>Weather in {location}</h2>
-<<<<<<< HEAD
-          <p>
-            Temperature:{" "}
-            {weatherData.data.timelines[0].intervals[0].values.temperature} °C
-          </p>
-          <p>
-            Humidity:{" "}
-            {weatherData.data.timelines[0].intervals[0].values.humidity} %
-          </p>
-          <p>
-            Weather:{" "}
-            {getWeatherDescription(
-              weatherData.data.timelines[0].intervals[0].values.weatherCode
-            )}
-          </p>
-          {weatherImage && <img src={weatherImage} alt="Weather Image" />}
-=======
-          <p>Temperature: {weatherData.data.timelines[0].intervals[0].values.temperature} °C</p>
-          <p>Humidity: {weatherData.data.timelines[0].intervals[0].values.humidity} %</p>
-          <p>Weather: {getWeatherDescription(weatherData.data.timelines[0].intervals[0].values.weatherCode)}</p>
-          {/* {weatherImage && (
+      <div className="App" style={{ backgroundImage: `url(${weatherImage})` }}>
+        <Logo />
+        <Suche setLocation={setLocation} />
+        {error && <p>Error: {error}</p>}
+        {weatherData ? (
+          <div>
+            <h2>Weather in {location}</h2>
+            <p>
+              Temperature:{" "}
+              {weatherData.data.timelines[0].intervals[0].values.temperature} °C
+            </p>
+            <p>
+              Humidity:{" "}
+              {weatherData.data.timelines[0].intervals[0].values.humidity} %
+            </p>
+            <p>
+              Weather:{" "}
+              {getWeatherDescription(
+                weatherData.data.timelines[0].intervals[0].values.weatherCode
+              )}
+            </p>
+            {/* {weatherImage && (
             <img src={weatherImage} alt="Weather Image" />)} */}
->>>>>>> main
-        </div>
-      ) : (
-        <p>Loading...</p>
-      )}
-
-
-
-<header>
-        <p class="logo">Weather Watch</p>
-        <div class="city-container">
-            <div>
-                <h1>Sydney</h1>
-                <p>Tuesday, 28 Mai 2024</p>
-            </div>
-        </div>
-        <div class="search-container">
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-    </header>
-
-    <main>
-        <section class="temp-container">
-            <div>
-                <h2>33°</h2>
-                <p><i class="fa-regular fa-sun"></i> Sunny</p>
-            </div>
-        </section>
-
-        <section class="details-container">
-            <div>
-                <h3>Wind</h3>
-                <strong>16</strong>
-                <small>km/h</small>
-            </div>
-            <div>
-                <h3>Precipitation</h3>
-                <strong>%0</strong>
-            </div>
-            <div>
-                <h3>Humidity</h3>
-                <strong>%41</strong>
-            </div>
-        </section>
-
-        <section class="hours-container">
-            <div>
-                <h3>11:00</h3>
-                <i class="fa-solid fa-cloud-sun"></i>
-                <p>33°</p>
-            </div>
-            <div>
-                <h3>13:00</h3>
-                <i class="fa-solid fa-cloud-sun"></i>
-                <p>33°</p>
-            </div>
-            <div>
-                <h3>15:00</h3>
-                <i class="fa-solid fa-cloud"></i>
-                <p>29°</p>
-            </div>
-            <div>
-                <h3>17:00</h3>
-                <i class="fa-solid fa-cloud-sun"></i>
-                <p>31°</p>
-            </div>
-            <div>
-                <h3>19:00</h3>
-                <i class="fa-solid fa-cloud"></i>
-                <p>33°</p>
-            </div>
-            <div>
-                <h3>21:00</h3>
-                <i class="fa-solid fa-cloud-sun"></i>
-                <p>36°</p>
-            </div>
-            <div>
-                <h3>23:00</h3>
-                <i class="fa-solid fa-cloud-sun"></i>
-                <p>33°</p>
-            </div>
-            <div>
-                <h3>01:00</h3>
-                <i class="fa-solid fa-cloud-sun"></i>
-                <p>33°</p>
-            </div>
-            <div>
-                <h3>03:00</h3>
-                <i class="fa-solid fa-cloud-sun"></i>
-                <p>33°</p>
-            </div>
-            <div>
-                <h3>05:00</h3>
-                <i class="fa-solid fa-cloud-sun"></i>
-                <p>33°</p>
-            </div>
-            <div>
-                <h3>07:00</h3>
-                <i class="fa-solid fa-cloud-sun"></i>
-                <p>33°</p>
-            </div>
-            <div>
-                <h3>09:00</h3>
-                <i class="fa-solid fa-cloud-sun"></i>
-                <p>33°</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <small>&copy;2024 AFJJS. All rights reserved. This site is provided "as is" without any warranties, express or implied. We are not liable for any losses or damages arising from the use of this site.</small>
-    </footer>
-
-
-
-    </div>
+          </div>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
+      <Footer />
     </>
   );
 }
