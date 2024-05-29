@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import './suche.css';
+import { useState } from "react";
+import "./suche.css";
 
 function Suche({ setLocation }) {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setLocation(input);
-    setInput('');
+    setInput("");
   };
 
   return (
