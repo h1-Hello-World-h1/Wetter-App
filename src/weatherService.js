@@ -5,9 +5,12 @@ export const fetchWeatherData = async (location) => {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error("Network response was not ok");
+      throw new Error(`Network response was not ok: ${response.statusText}`);
     }
     const data = await response.json();
+    if (data.error) {
+      throw new Error(`Api error:  ${data.error.message}`);
+    }
     return data;
   } catch (error) {
     console.error("Fetching weather data failed:", error);
